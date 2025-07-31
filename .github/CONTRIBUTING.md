@@ -1,104 +1,102 @@
-# Contributing to Comercify
+# Cómo Contribuir a Comercify
 
-First off, thank you for considering contributing to Comercify! It's people like you that make this project a valuable resource for the e-commerce community. We are excited to see your contributions.
+¡Gracias por querer contribuir a Comercify! Personas como tú hacen que este proyecto sea un recurso valioso para la comunidad de e-commerce. Estamos emocionados por tus aportes.
 
-## How to Add Your Utility Function
+## Pasos para añadir tu función utilitaria
 
-We've tried to make it as easy as possible to contribute your own utility functions. Here is a step-by-step guide to help you get started:
+Hemos simplificado el proceso para que puedas añadir fácilmente tus propias funciones utilitarias. Aquí tienes una guía paso a paso para comenzar:
 
-### Step 1: Fork the Repository
+### Paso 1: Haz un fork del repositorio
 
-If you're new to contributing, you'll need to **[fork the repository](https://github.com/comercify-dev/comercify/fork)**. This will create a copy of the project in your own GitHub account that you can work on.
+Si es tu primera vez contribuyendo, necesitas **[hacer un fork del repositorio](https://github.com/comercify-dev/comercify/fork)**. Esto crea una copia del proyecto en tu cuenta de GitHub donde puedes trabajar.
 
-### Step 2: Clone Your Fork
+### Paso 2: Clona tu fork
 
-Now, clone your forked repository to your local machine:
+Clona tu repositorio bifurcado a tu máquina local:
 
-```sh
-git clone https://github.com/YOUR_USERNAME/comercify.git
+```bash
+git clone https://github.com/TU_USUARIO/comercify.git
 cd comercify
 ```
 
-### Step 3: Create a New Branch
+### Paso 3: Crea una nueva rama
 
-Create a new branch for your contribution. A good branch name is descriptive of the feature you're adding.
+Crea una rama nueva para tu contribución. Es recomendable que el nombre describa el cambio o la función que añades:
 
-```sh
-git checkout -b feat/add-my-new-function
+```bash
+git checkout -b feat/add-mi-nueva-funcion
 ```
 
-### Step 4: Create Your Module
+### Paso 4: Crea tu módulo
 
-Inside the `src` directory, create a new folder with your GitHub username. This will be your personal module where you can add your functions.
+Dentro del directorio `src`, crea una carpeta con tu nombre de usuario de GitHub. Este será tu módulo personal donde añadirás tus funciones:
 
-```sh
-mkdir src/YOUR_USERNAME
+```bash
+mkdir src/TU_USUARIO
 ```
 
-### Step 5: Add Your Function and Tests
+### Paso 5: Añade tus funciones, tipos y tests
 
-Inside your new module folder (`src/YOUR_USERNAME`), create two files:
+Dentro de tu módulo:
 
-1. `index.ts`: This is where you'll add your utility function. Make sure to export it!
-2. `index.test.ts`: This is where you'll add tests for your function using `vitest`.
+- Crea un archivo `index.ts` donde pondrás y exportarás tus funciones.
 
-**Example `index.ts`:**
+- Añade un archivo `types.ts` con los tipos o interfaces que uses.
+
+- Crea un archivo `index.test.ts` con las pruebas unitarias usando `vitest`.
+
+Ejemplo mínimo de `index.ts`:
 
 ```typescript
-export const yourNewFunction = (name: string): string => {
-  return `Hello, ${name}!`;
+export const yourNewFunction = () => {
+  // Tu lógica aquí
 };
 ```
 
-**Example `index.test.ts`:**
+### Paso 6: Añade la documentación de tu módulo
 
-```typescript
-import { describe, it, expect } from 'vitest';
-import { yourNewFunction } from './index';
+Crea un archivo `README.md` dentro de tu módulo (`src/TU_USUARIO/README.md`) para documentar tus funciones. Luego, añade un enlace a esta documentación en la sección **Documentación de módulos** del README principal.
 
-describe('yourNewFunction', () => {
-  it('should return a greeting', () => {
-    expect(yourNewFunction('World')).toBe('Hello, World!');
-  });
-});
-```
+### Paso 7: Exporta tu módulo en `package.json`
 
-### Step 6: Export Your Module
-
-Open the `package.json` file and add your new module to the `exports` field. This makes your function available to everyone who uses the package.
+Abre `package.json` y añade tu módulo al campo `exports`, para que otros puedan importarlo fácilmente:
 
 ```json
 "exports": {
   "./adrian": "./dist/adrian/index.js",
-  "./YOUR_USERNAME": "./dist/YOUR_USERNAME/index.js"
+  "./TU_USUARIO": "./dist/TU_USUARIO/index.js"
 },
 ```
 
-### Step 7: Build and Test Your Changes
+### Paso 8: Compila y prueba tus cambios
 
-Make sure everything is working correctly by running the build and test commands:
+Ejecuta los comandos para compilar el paquete y correr los tests:
 
-```sh
+```bash
 pnpm build
 pnpm test
 ```
 
-### Step 8: Submit a Pull Request
+### Paso 9: Envía un Pull Request
 
-Once you're happy with your changes, commit them and push them to your fork:
+Haz commit y push de tus cambios a tu fork, y abre un **pull request** hacia el repositorio principal:
 
-```sh
+```bash
 git add .
-git commit -m "feat: Add my new function"
-git push origin feat/add-my-new-function
+git commit -m "feat: Añade nueva función útil"
+git push origin feat/add-mi-nueva-funcion
 ```
 
-Finally, go to your fork on GitHub and **[open a pull request](https://github.com/comercify-dev/comercify/pulls)**. We'll review it as soon as we can!
+Finalmente, abre tu PR en GitHub y lo revisaremos lo antes posible.
 
-## Code of Conduct
+---
 
-To ensure a welcoming and inclusive community, we have a **[Code of Conduct](./CODE_OF_CONDUCT.md)** that all contributors are expected to follow.
+## Código de Conducta
 
-## License
+Para mantener una comunidad inclusiva y amable, todos los colaboradores deben seguir nuestro [Código de Conducta](./CODE_OF_CONDUCT.md).
 
-By contributing, you agree that your contributions will be licensed under the **[MIT License](./LICENSE)** that covers the project.
+---
+
+## Licencia
+
+Al contribuir, aceptas que tu código será licenciado bajo la [Licencia MIT](./LICENSE) que rige el proyecto.
