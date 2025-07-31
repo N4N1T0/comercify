@@ -1,6 +1,6 @@
 {
   "name": "comercify",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "🛒 E-commerce utility functions by the community, for the community.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -23,13 +23,13 @@
   "author": "Adrián Álvarez",
   "license": "MIT",
   "devDependencies": {
-    "@eslint/js": "^9.31.0",
-    "eslint": "9.31.0",
+    "@eslint/js": "^9.32.0",
+    "eslint": "9.32.0",
     "globals": "^16.3.0",
     "prettier": "3.6.2",
     "tsup": "8.5.0",
     "typescript": "5.8.3",
-    "typescript-eslint": "^8.37.0",
+    "typescript-eslint": "^8.38.0",
     "vitest": "3.2.4"
   }
 }
