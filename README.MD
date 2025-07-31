@@ -1,84 +1,91 @@
 # 🛒 Comercify
 
-> E-commerce utility functions by the community, for the community.
+> **E-commerce utility functions by the community, for the community.**
 
 [![npm version](https://img.shields.io/npm/v/comercify.svg)](https://www.npmjs.com/package/comercify)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](../LICENSE)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/comercify-dev/comercify/ci.yml?branch=main)](https://github.com/comercify-dev/comercify/actions)
 [![Contributors](https://img.shields.io/github/contributors/comercify-dev/comercify)](https://github.com/comercify-dev/comercify/graphs/contributors)
 
 ---
 
-## 📖 Description
+## 📖 ¿Qué es Comercify?
 
-Comercify is a community-driven open-source project that provides a collection of utility functions for e-commerce development. The goal is to create a shared library of reusable functions that can simplify common tasks when building e-commerce applications.
+**Comercify** es un proyecto **open source** impulsado por la comunidad que ofrece una **colección de funciones de utilidad para el desarrollo de e-commerce**.  
+El objetivo es crear una librería compartida de funciones reutilizables que simplifiquen tareas comunes al construir aplicaciones de comercio electrónico.
 
-Each contributor can add their own module with specific functions, which can be easily imported from the main package.
+Cada colaborador puede añadir **su propio módulo** con funciones específicas, que luego se pueden importar fácilmente desde el paquete principal.
 
 ---
 
-## 🚀 Installation
+## 🚀 Instalación
+
+Instala Comercify con tu gestor de paquetes favorito:
 
 ```bash
 pnpm add comercify
-# or
+# o
 npm install comercify
-# or
+# o
 yarn add comercify
 ```
 
 ---
 
-## Usage
+## ⚡ Uso
 
-Once installed, you can import the utility functions from the different modules. For example, to use a function from the `adrian` module:
+Una vez instalado, puedes importar las funciones de los diferentes módulos.
+Por ejemplo, para usar una función del módulo `adrian`:
 
 ```typescript
 import { myFunction } from 'comercify/adrian';
 
-// Use the function in your code
+// Usa la función en tu proyecto
 myFunction();
 ```
 
 ---
 
-## 🙌 Contributing
+## 🙌 Cómo Contribuir
 
-We welcome contributions from everyone! If you have a utility function that you think would be useful for the community, here's how you can add it to Comercify:
+¡Todas las contribuciones son bienvenidas!
+Si tienes una función de utilidad que pueda ayudar a la comunidad, aquí tienes los pasos para añadirla:
 
-1. **Fork the repository** and create a new branch for your feature.
+1. **Haz un fork del repositorio** y crea una nueva rama para tu feature.
 
-2. **Create a new module**: Inside the `src` directory, create a new folder with your GitHub username (e.g., `src/your-username`).
+2. **Crea un nuevo módulo**: Dentro de `src`, crea una carpeta con tu nombre de usuario de GitHub (ej: `src/tu-usuario`).
 
-3. **Add your functions**: Inside your new module folder, create an `index.ts` file and add your utility functions. Make sure to export them.
+3. **Añade tus funciones** en `index.ts` y expórtalas:
 
    ```typescript
-   // src/your-username/index.ts
+   // src/tu-usuario/index.ts
    export const yourNewFunction = () => {
-     // Your function logic here
+     // Tu lógica aquí
    };
    ```
 
-4. **Export your module**: Open the `package.json` file and add your new module to the `exports` field. This will make it accessible to users of the package.
+4. **Exporta tu módulo** en el `package.json`:
 
    ```json
    "exports": {
      "./adrian": "./dist/adrian/index.js",
-     "./your-username": "./dist/your-username/index.js"
+     "./tu-usuario": "./dist/tu-usuario/index.js"
    },
    ```
 
-5. **Build and test**: Make sure your changes work correctly by running the build and test commands:
+5. **Compila y prueba** tus cambios:
 
    ```bash
    pnpm build
    pnpm test
    ```
 
-6. **Submit a pull request**: Push your changes to your fork and open a pull request to the main repository.
+6. **Envía un Pull Request** con tus cambios.
+   Revisa nuestra guía de [Contribución](../CONTRIBUTING.md) para más detalles.
 
 ---
 
-## 📝 License
+## 📝 Licencia
 
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+Este proyecto está bajo la **Licencia MIT**.
+Consulta el archivo [LICENSE](../LICENSE) para más información.
