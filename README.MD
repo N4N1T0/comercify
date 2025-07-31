@@ -50,7 +50,7 @@ myFunction();
 
 Aquí puedes encontrar la documentación específica de cada módulo/paquete aportado por los colaboradores:
 
-- [adrian](./adrian/README.md)
+- [adrian](src/adrian/README.md)
 
 ---
 
