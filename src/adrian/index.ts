@@ -51,21 +51,16 @@ export function slugify(text: string): string {
 /**
  * Calcula el ahorro absoluto y porcentual dado el precio original y el precio con descuento.
  *
- * @param originalPrice - Precio original (debe ser >= 0).
+ * @param originalPrice - Precio original (debe ser mayor >= 0).
  * @param discountedPrice - Precio con descuento.
  * @returns El ahorro en cantidad y porcentaje.
  */
-export function calculateSavings(
-  originalPrice: number,
-  discountedPrice: number
-): CalculateSavings {
+export function calculateSavings(originalPrice: number, discountedPrice: number): CalculateSavings {
   if (originalPrice <= 0 || discountedPrice >= originalPrice) {
     return { amountSaved: 0, percentSaved: 0 };
   }
   const amountSaved = originalPrice - discountedPrice;
-  const percentSaved = parseFloat(
-    ((amountSaved / originalPrice) * 100).toFixed(2)
-  );
+  const percentSaved = parseFloat(((amountSaved / originalPrice) * 100).toFixed(2));
   return { amountSaved, percentSaved };
 }
 
