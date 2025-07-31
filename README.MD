@@ -46,6 +46,14 @@ myFunction();
 
 ---
 
+## 📚 Documentación de módulos
+
+Aquí puedes encontrar la documentación específica de cada módulo/paquete aportado por los colaboradores:
+
+- [adrian](./adrian/README.md)
+
+---
+
 ## 🙌 Cómo Contribuir
 
 ¡Todas las contribuciones son bienvenidas!
@@ -64,7 +72,24 @@ Si tienes una función de utilidad que pueda ayudar a la comunidad, aquí tienes
    };
    ```
 
-4. **Exporta tu módulo** en el `package.json`:
+4. **Añade los tipos** de tu módulo en `types.ts`:
+
+   ```typescript
+   export interface YourNewFunctionParams {
+     // Define tus parámetros aquí
+   }
+   ```
+
+5. **Añade la prueba** de tu módulo en `index.test.ts`:
+
+   ```typescript
+   import { yourNewFunction } from './index';
+   import { YourNewFunctionParams } from './types';
+   ```
+
+6. **Añade la documentación** de tu módulo en `src/tu-usuario/README.md` y en el apartado de **Documentación de módulos** del README Principal añade el link.
+
+7. **Exporta tu módulo** en el `package.json`:
 
    ```json
    "exports": {
@@ -73,14 +98,14 @@ Si tienes una función de utilidad que pueda ayudar a la comunidad, aquí tienes
    },
    ```
 
-5. **Compila y prueba** tus cambios:
+8. **Compila y prueba** tus cambios:
 
    ```bash
    pnpm build
    pnpm test
    ```
 
-6. **Envía un Pull Request** con tus cambios.
+9. **Envía un Pull Request** con tus cambios.
    Revisa nuestra guía de [Contribución](../CONTRIBUTING.md) para más detalles.
 
 ---
