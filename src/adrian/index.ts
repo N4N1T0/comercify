@@ -14,6 +14,7 @@ import { CalculateSavings, CartItem, SimpleDiscount } from './types';
 export function eurilize(value: number | string | null = 0): string {
   const number = Number(value);
 
+  // Manejar el caso de NaN
   if (isNaN(number)) return '0,00 €';
 
   return number.toLocaleString('de-DE', {
@@ -82,10 +83,12 @@ export function applyDiscount(
 ): { total: number; savings: number } {
   const now = new Date();
 
+  // Manejar el caso de descuento expirado
   if (discount.expiresAt && now > discount.expiresAt) {
     return { total: subtotal, savings: 0 };
   }
 
+  // Manejar el caso de subtotal insuficiente
   if (discount.minSubtotal !== undefined && subtotal < discount.minSubtotal) {
     return { total: subtotal, savings: 0 };
   }
