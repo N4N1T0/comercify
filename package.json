@@ -17,8 +17,8 @@
   },
   "lint-staged": {
     "*.ts": [
-      "lint",
-      "format"
+      "eslint --fix",
+      "prettier --write"
     ]
   },
   "keywords": [
