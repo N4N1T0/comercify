@@ -1,122 +1,80 @@
-# Contributor Covenant Code of Conduct
+# Código de Conducta para Contribuidores
 
-## Our Pledge
+## Nuestro Compromiso
 
-We as members, contributors, and leaders pledge to make participation in our
-community a harassment-free experience for everyone, regardless of age, body
-size, visible or invisible disability, ethnicity, sex characteristics, gender
-identity and expression, level of experience, education, socio-economic status,
-nationality, personal appearance, race, religion, or sexual identity
-and orientation.
+Como miembros, colaboradores y líderes de la comunidad Comercify, nos comprometemos a crear una experiencia libre de acoso para todas las personas, sin importar edad, complexión, discapacidad visible o invisible, etnia, características sexuales, identidad y expresión de género, nivel de experiencia, educación, estatus socioeconómico, nacionalidad, apariencia personal, raza, religión, orientación o identidad sexual.
 
-We pledge to act and interact in ways that contribute to an open, welcoming,
-diverse, inclusive, and healthy community.
+Nos comprometemos a actuar e interactuar de manera que fomenten una comunidad abierta, acogedora, diversa, inclusiva y saludable.
 
-## Our Standards
+## Nuestros Estándares
 
-Examples of behavior that contributes to a positive environment for our
-community include:
+Ejemplos de comportamientos que contribuyen a un ambiente positivo incluyen:
 
-- Demonstrating empathy and kindness toward other people
-- Being respectful of differing opinions, viewpoints, and experiences
-- Giving and gracefully accepting constructive feedback
-- Accepting responsibility and apologizing to those affected by our mistakes,
-  and learning from the experience
-- Focusing on what is best not just for us as individuals, but for the
-  overall community
+- Mostrar empatía y amabilidad hacia los demás.
+- Respetar opiniones, puntos de vista y experiencias diferentes.
+- Dar y aceptar retroalimentación constructiva con gracia.
+- Asumir responsabilidad y disculparse con quienes se vean afectados por errores, aprendiendo de la experiencia.
+- Enfocarse en lo que es mejor no solo para uno mismo, sino para toda la comunidad.
 
-Examples of unacceptable behavior include:
+Ejemplos de comportamientos inaceptables incluyen:
 
-- The use of sexualized language or imagery, and sexual attention or
-  advances of any kind
-- Trolling, insulting or derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others' private information, such as a physical or email
-  address, without their explicit permission
-- Other conduct which could reasonably be considered inappropriate in a
-  professional setting
+- Uso de lenguaje o imágenes sexualizadas, atención o avances sexuales no solicitados.
+- Trolleo, insultos, comentarios despectivos y ataques personales o políticos.
+- Acoso público o privado.
+- Publicar información privada de otras personas sin permiso explícito, como direcciones físicas o correos electrónicos.
+- Cualquier otra conducta que pueda considerarse inapropiada en un entorno profesional.
 
-## Enforcement Responsibilities
+## Responsabilidades de la Moderación
 
-Community leaders are responsible for clarifying and enforcing our standards of
-acceptable behavior and will take appropriate and fair corrective action in
-response to any behavior that they deem inappropriate, threatening, offensive,
-or harmful.
+Los líderes de la comunidad son responsables de clarificar y hacer cumplir los estándares de comportamiento aceptable y tomarán acciones correctivas justas y adecuadas frente a comportamientos inapropiados, amenazantes, ofensivos o dañinos.
 
-Community leaders have the right and responsibility to remove, edit, or reject
-comments, commits, code, wiki edits, issues, and other contributions that are
-not aligned to this Code of Conduct, and will communicate reasons for moderation
-decisions when appropriate.
+Tienen el derecho y la responsabilidad de eliminar, editar o rechazar comentarios, commits, código, ediciones en wiki, issues y otras contribuciones que no se alineen con este Código de Conducta, comunicando las razones cuando sea apropiado.
 
-## Scope
+## Ámbito de Aplicación
 
-This Code of Conduct applies within all community spaces, and also applies when
-an individual is officially representing the community in public spaces.
-Examples of representing our community include using an official e-mail address,
-posting via an official social media account, or acting as an appointed
-representative at an online or offline event.
+Este Código de Conducta aplica en todos los espacios comunitarios, así como cuando una persona representa oficialmente a Comercify en espacios públicos, como mediante un correo oficial, redes sociales o como representante en eventos en línea o presenciales.
 
-## Enforcement
+## Aplicación
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-<conduct@comercify.dev>.
-All complaints will be reviewed and investigated promptly and fairly.
+Casos de comportamiento abusivo, acosador o inaceptable pueden ser reportados a los líderes responsables en:
 
-All community leaders are obligated to respect the privacy and security of the
-reporter of any incident.
+**[conduct@comercify.dev](mailto:conduct@comercify.dev)**
 
-## Enforcement Guidelines
+Todas las denuncias serán revisadas e investigadas de manera rápida y justa.
 
-Community leaders will follow these Community Impact Guidelines in determining
-the consequences for any action they deem in violation of this Code of Conduct:
+Los líderes respetarán la privacidad y seguridad de quienes reporten incidentes.
 
-### 1. Correction
+## Directrices de Aplicación
 
-**Community Impact**: Use of inappropriate language or other behavior deemed
-unprofessional or unwelcome in the community.
+Los líderes comunitarios seguirán estas pautas para decidir las consecuencias de cualquier incumplimiento:
 
-**Consequence**: A private, written warning from community leaders, providing
-clarity around the nature of the violation and an explanation of why the
-behavior was inappropriate. A public apology may be requested.
+### 1. Corrección
 
-### 2. Warning
+**Impacto:** Uso de lenguaje inapropiado o comportamiento considerado no profesional o indeseado.
 
-**Community Impact**: A violation through a single incident or series
-of actions.
+**Consecuencia:** Advertencia privada escrita que explique la violación y por qué es inapropiada. Se puede solicitar una disculpa pública.
 
-**Consequence**: A warning with consequences for continued behavior. No
-interaction with the people involved, including unsolicited interaction with
-those enforcing the Code of Conduct, for a specified period of time. This
-includes avoiding interaction in community spaces as well as external channels
-like social media. Violating these terms may lead to a temporary or
-permanent ban.
+### 2. Advertencia
 
-### 3. Temporary Ban
+**Impacto:** Violación mediante uno o varios incidentes.
 
-**Community Impact**: A serious violation of community standards, including
-sustained inappropriate behavior.
+**Consecuencia:** Advertencia con consecuencias por conducta repetida. Restricción de interacción con personas afectadas y moderadores por un período. Incluye evitar espacios comunitarios y canales externos (redes sociales). Violaciones pueden llevar a suspensión temporal o permanente.
 
-**Consequence**: A temporary ban from any sort of interaction or public
-communication with the community for a specified period of time. No public or
-private interaction with the people involved, including unsolicited interaction
-with those enforcing the Code of Conduct, is allowed during this period.
-Violating these terms may lead to a permanent ban.
+### 3. Suspensión Temporal
 
-### 4. Permanent Ban
+**Impacto:** Violación grave o comportamiento inapropiado sostenido.
 
-**Community Impact**: Demonstrating a pattern of violation of community
-standards, including sustained inappropriate behavior, harassment of an
-individual, or aggression toward or disparagement of classes of individuals.
+**Consecuencia:** Prohibición temporal de interacción o comunicación pública con la comunidad. Prohibida interacción pública o privada con afectados o moderadores durante el período. Violaciones pueden derivar en baneo permanente.
 
-**Consequence**: A permanent ban from any sort of public interaction within
-the community.
+### 4. Baneo Permanente
 
-## Attribution
+**Impacto:** Patrón reiterado de violación, acoso a individuos o agresión/desprecio hacia grupos.
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage],
-version 2.0, available at
-[https://www.contributor-covenant.org/version/2/0/code_of_conduct.html][v2.0].
+**Consecuencia:** Prohibición permanente de cualquier interacción pública en la comunidad.
+
+## Atribución
+
+Este Código de Conducta está adaptado del [Contributor Covenant][homepage], versión 2.0, disponible en [https://www.contributor-covenant.org/version/2/0/code_of_conduct.html][v2.0].
 
 [homepage]: https://www.contributor-covenant.org
 [v2.0]: https://www.contributor-covenant.org/version/2/0/code_of_conduct.html
