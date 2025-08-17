@@ -34,15 +34,92 @@ yarn add comercify
 
 ## ⚡ Uso
 
-Una vez instalado, puedes importar las funciones de los diferentes módulos.
-Por ejemplo, para usar una función del módulo `adrian`:
+Una vez instalado, puedes importar las funciones de los diferentes módulos de dos formas:
+
+### Importación por módulo individual
 
 ```typescript
-import { myFunction } from 'comercify/adrian';
+import { eurilize, slugify } from 'comercify/adrian';
 
-// Usa la función en tu proyecto
-myFunction();
+// Usa las funciones en tu proyecto
+const price = eurilize(1234.56); // "1.234,56 €"
+const slug = slugify('Producto Nuevo'); // "producto-nuevo"
 ```
+
+### Importación consolidada (recomendado)
+
+Genera un archivo consolidado con todas las exportaciones:
+
+```bash
+# Genera ./src/lib/comercify.ts con todas las exportaciones
+npx comercify-cli
+
+# O especifica una ruta personalizada
+npx comercify-cli --output ./src/utils.ts
+```
+
+Luego importa desde el archivo local:
+
+```typescript
+import { eurilize, slugify, calculateSavings } from './lib/comercify';
+
+// Todas las funciones disponibles desde un solo archivo
+const price = eurilize(1234.56);
+const slug = slugify('Producto Nuevo');
+const savings = calculateSavings(100, 80);
+```
+
+---
+
+## 🛠️ CLI Tool
+
+Comercify incluye una herramienta de línea de comandos para copiar archivos de módulos de usuario dentro de tu proyecto.
+
+### Propósito
+
+La herramienta CLI escanea las carpetas de usuario en el directorio `src/`, te permite seleccionar una de forma interactiva, y copia su archivo `index.ts` a una ubicación especificada. Esto es útil para duplicar estructuras de módulos o crear nuevos módulos basados en existentes.
+
+### Uso del CLI
+
+```bash
+# Ejecutar el CLI interactivo
+pnpm run cli
+```
+
+**Proceso Interactivo:**
+
+1. Muestra las carpetas de usuario disponibles con su estado
+2. Te permite seleccionar una carpeta por número
+3. Solicita la ruta de salida (por defecto: `./src/lib/comercify.ts`)
+4. Copia el archivo `index.ts` de la carpeta seleccionada
+
+**Ejemplo de Salida:**
+
+```ts
+📁 Carpetas de usuario disponibles:
+  1. adrian ✅ (tiene index.ts)
+  2. utils ❌ (sin index.ts)
+
+🔢 Selecciona un número de carpeta: 1
+📝 Ingresa la ruta de salida (por defecto: ./src/lib/comercify.ts):
+✅ ¡Archivo copiado exitosamente!
+```
+
+### Casos de Uso
+
+- **Plantillas de Módulos**: Copiar módulos existentes como punto de partida para nuevas funcionalidades
+- **Respaldo de Código**: Crear respaldos de módulos importantes
+- **Duplicación de Estructura**: Mantener patrones consistentes entre módulos
+- **Prototipado Rápido**: Crear rápidamente nuevos módulos basados en estructuras probadas
+
+### Beneficios
+
+- **Selección Interactiva**: Proceso amigable de selección de carpetas
+- **Seguimiento de Origen**: Comentarios de encabezado muestran la fuente original y timestamp
+- **Salida Flexible**: Elige cualquier ruta de destino
+- **Preserva Estructura**: Mantiene la organización y comentarios del archivo original
+
+Para más detalles, consulta la [documentación del CLI](src/cli/README.md).
 
 ---
 
