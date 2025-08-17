@@ -4,16 +4,21 @@
   "description": "🛒 E-commerce utility functions by the community, for the community.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "comercify-cli": "./dist/cli/index.js"
+  },
   "exports": {
     "./adrian": "./dist/adrian/index.js"
   },
   "scripts": {
-    "build": "tsup src/*/index.ts --dts --format esm,cjs --out-dir dist",
-    "dev": "tsup src/*/index.ts --watch",
+    "build": "tsup src/*/index.ts src/cli/index.ts --dts --format esm,cjs --out-dir dist",
+    "dev": "tsup src/*/index.ts src/cli/index.ts --watch",
     "test": "vitest",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "cli": "tsx src/cli/index.ts",
+    "generate-exports": "tsx src/cli/index.ts"
   },
   "lint-staged": {
     "*.ts": [
@@ -31,12 +36,14 @@
   "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^9.32.0",
+    "@types/node": "^20.11.0",
     "eslint": "9.32.0",
     "globals": "^16.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "prettier": "3.6.2",
     "tsup": "8.5.0",
+    "tsx": "^4.7.0",
     "typescript": "5.8.3",
     "typescript-eslint": "^8.38.0",
     "vitest": "3.2.4"
