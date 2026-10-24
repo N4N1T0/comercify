@@ -10,7 +10,7 @@ export {
   roundMoney,
 } from './money';
 export { slugify } from './text';
-export { applyDiscount } from './discounts';
+export { applyDiscount, generateInviteCode, isDiscountActive, pickBestDiscount } from './discounts';
 export {
   calculateShipping,
   cartItemCount,

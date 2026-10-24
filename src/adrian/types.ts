@@ -41,3 +41,15 @@ export type FreeShippingProgress = {
   remaining: number; // amount left to reach the threshold
   percent: number; // 0 to 100, for a progress bar
 };
+
+export type BestDiscount = {
+  discount: SimpleDiscount | null; // null when none of them applies
+  total: number;
+  savings: number;
+};
+
+export type InviteCodeOptions = {
+  length?: number; // characters of the random part (default 8)
+  prefix?: string; // prepended as is, e.g. 'WELCOME-'
+  alphabet?: string; // characters to draw from
+};
