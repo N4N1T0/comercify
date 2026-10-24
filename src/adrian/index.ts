@@ -1,4 +1,5 @@
 import { CalculateSavings, CartItem, SimpleDiscount } from './types';
+export type * from './types';
 
 /**
  * Formats a value as a Euro currency string using German locale.
