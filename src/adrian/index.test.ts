@@ -88,6 +88,11 @@ describe('calculateSavings', () => {
       percentSaved: parseFloat(((50 / 99.99) * 100).toFixed(2)),
     });
   });
+
+  it('rounds the amount saved to cents', () => {
+    expect(calculateSavings(19.99, 14.99).amountSaved).toBe(5);
+    expect(calculateSavings(0.3, 0.1).amountSaved).toBe(0.2);
+  });
 });
 
 // APPLY DISCOUNT
@@ -140,7 +145,13 @@ describe('applyDiscount (simple)', () => {
     const discount: SimpleDiscount = { type: 'fixed', amount: 500 };
     const result = applyDiscount(100, discount);
     expect(result.total).toBe(0);
-    expect(result.savings).toBe(500);
+    // the customer saves the 100 they would have paid, not the 500 of the coupon
+    expect(result.savings).toBe(100);
+  });
+
+  it('caps a percentage discount above 100% at the subtotal', () => {
+    const discount: SimpleDiscount = { type: 'percentage', amount: 150 };
+    expect(applyDiscount(80, discount)).toEqual({ total: 0, savings: 80 });
   });
 });
 

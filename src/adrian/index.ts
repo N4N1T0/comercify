@@ -12,10 +12,10 @@ import { CalculateSavings, CartItem, SimpleDiscount } from './types';
  * eurilize(null) // "0,00 €"
  */
 export function eurilize(value: number | string | null = 0): string {
-  const number = Number(value);
-
-  // Manejar el caso de NaN
-  if (isNaN(number)) return '0,00 €';
+  const parsed = Number(value);
+  // NaN falls back to zero through the same formatter, so the output keeps
+  // the locale's non-breaking space instead of a hardcoded regular one
+  const number = isNaN(parsed) ? 0 : parsed;
 
   return number.toLocaleString('de-DE', {
     style: 'currency',
@@ -60,7 +60,8 @@ export function calculateSavings(originalPrice: number, discountedPrice: number)
   if (originalPrice <= 0 || discountedPrice >= originalPrice) {
     return { amountSaved: 0, percentSaved: 0 };
   }
-  const amountSaved = originalPrice - discountedPrice;
+  // round to cents: 99.99 - 49.99 is 50.00000000000001 in floating point
+  const amountSaved = parseFloat((originalPrice - discountedPrice).toFixed(2));
   const percentSaved = parseFloat(((amountSaved / originalPrice) * 100).toFixed(2));
   return { amountSaved, percentSaved };
 }
@@ -99,6 +100,9 @@ export function applyDiscount(
   } else {
     savings = parseFloat(discount.amount.toFixed(2));
   }
+
+  // a discount can never save more than the subtotal it applies to
+  savings = Math.min(savings, subtotal);
 
   const total = Math.max(0, parseFloat((subtotal - savings).toFixed(2)));
 
