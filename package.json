@@ -28,7 +28,10 @@
   },
   "files": [
     "dist",
-    "!dist/**/*.map"
+    "!dist/**/*.map",
+    "src/*/*.ts",
+    "!src/**/*.test.ts",
+    "!src/cli/**"
   ],
   "sideEffects": false,
   "scripts": {
@@ -41,8 +44,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky",
-    "cli": "tsx src/cli/index.ts",
-    "generate-exports": "tsx src/cli/index.ts"
+    "cli": "tsx src/cli/index.ts"
   },
   "lint-staged": {
     "*.ts": [

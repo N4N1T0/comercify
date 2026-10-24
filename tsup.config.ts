@@ -7,4 +7,6 @@ export default defineConfig({
   dts: true,
   clean: true,
   sourcemap: true,
+  // the CLI reads __dirname to find the package, the ESM build needs the shim
+  shims: true,
 });
