@@ -15,3 +15,14 @@ export type CartItem = {
   quantity: number;
   [key: string]: string | number; // extra metadata such as name, price or variant
 };
+
+export type FormatPriceOptions = {
+  currency?: string; // ISO 4217 code, e.g. 'EUR' or 'USD'
+  locale?: string; // BCP 47 tag, e.g. 'de-DE' or 'en-US'
+};
+
+export type TaxBreakdown = {
+  net: number;
+  tax: number;
+  gross: number;
+};
