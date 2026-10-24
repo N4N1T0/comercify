@@ -26,3 +26,18 @@ export type TaxBreakdown = {
   tax: number;
   gross: number;
 };
+
+export type PricedCartItem = CartItem & {
+  price: number; // unit price
+};
+
+export type ShippingRule = {
+  flatRate: number; // cost when the order does not qualify for free shipping
+  freeThreshold?: number; // subtotal from which shipping is free
+};
+
+export type FreeShippingProgress = {
+  qualified: boolean;
+  remaining: number; // amount left to reach the threshold
+  percent: number; // 0 to 100, for a progress bar
+};

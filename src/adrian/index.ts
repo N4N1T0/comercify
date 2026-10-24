@@ -11,4 +11,11 @@ export {
 } from './money';
 export { slugify } from './text';
 export { applyDiscount } from './discounts';
-export { mergeCarts } from './cart';
+export {
+  calculateShipping,
+  cartItemCount,
+  cartSubtotal,
+  freeShippingProgress,
+  mergeCarts,
+  updateCartItem,
+} from './cart';
