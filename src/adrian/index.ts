@@ -19,3 +19,4 @@ export {
   mergeCarts,
   updateCartItem,
 } from './cart';
+export { generateSku, getStockStatus, isValidGtin } from './catalog';

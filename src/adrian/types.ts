@@ -53,3 +53,14 @@ export type InviteCodeOptions = {
   prefix?: string; // prepended as is, e.g. 'WELCOME-'
   alphabet?: string; // characters to draw from
 };
+
+export type StockStatus = 'in_stock' | 'low_stock' | 'out_of_stock';
+
+export type StockStatusOptions = {
+  lowStockThreshold?: number; // units at or below which stock counts as low (default 5)
+};
+
+export type SkuOptions = {
+  separator?: string; // between parts (default '-')
+  maxPartLength?: number; // truncate each part to this many characters
+};
