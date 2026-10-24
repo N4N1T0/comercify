@@ -5,7 +5,7 @@ export type CalculateSavings = {
 
 export type SimpleDiscount = {
   type: 'percentage' | 'fixed';
-  amount: number; // porcentaje (ej: 20) o cantidad fija
+  amount: number; // percentage (e.g. 20) or fixed amount
   minSubtotal?: number;
   expiresAt?: Date;
 };
@@ -13,5 +13,5 @@ export type SimpleDiscount = {
 export type CartItem = {
   productId: string;
   quantity: number;
-  [key: string]: string | number; // metadatos adicionales como nombre, precio, variante, etc.
+  [key: string]: string | number; // extra metadata such as name, price or variant
 };
