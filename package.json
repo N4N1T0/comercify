@@ -4,7 +4,7 @@
   "description": "Typed, dependency-free e-commerce utilities for TypeScript: prices, taxes, discounts, carts, shipping and catalog. Import from npm or copy the source with the CLI.",
   "type": "commonjs",
   "bin": {
-    "comercify-cli": "./dist/cli/index.js"
+    "comercify-cli": "dist/cli/index.js"
   },
   "exports": {
     "./adrian": {
