@@ -2,22 +2,21 @@
 
 > **E-commerce utility functions by the community, for the community.**
 > [![npm version](https://img.shields.io/npm/v/comercify.svg)](https://www.npmjs.com/package/comercify)
-> [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](../LICENSE)
-> [![Build Status](https://img.shields.io/github/actions/workflow/status/N4N1T0/comercify/update-package.yml)](https://github.com/N4N1T0/comercify/actions)
+> [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+> [![CI](https://img.shields.io/github/actions/workflow/status/N4N1T0/comercify/ci.yml?label=CI)](https://github.com/N4N1T0/comercify/actions/workflows/ci.yml)
 
 ## [![Contributors](https://img.shields.io/github/contributors/N4N1T0/comercify)](https://github.com/N4N1T0/comercify/graphs/contributors)
 
 ## 📖 What is Comercify?
 
-**Comercify** is a community-driven **open source** project providing a **collection of utility functions for e-commerce development**.
-Its goal is to create a shared library of reusable functions that simplify common tasks when building e-commerce applications.
-Each contributor can add **their own module** with specific functions, which can then be easily imported from the main package.
+**Comercify** is a community-driven **open source** project providing a **collection of utility functions for e-commerce development**: prices and taxes, discounts, carts, shipping and catalog data.
+Each contributor adds **their own module** with specific functions, which can be imported from the package or copied into your project with the CLI.
+
+The functions are typed, dependency-free and tested, and they run in the browser and on Node.js 20 or later.
 
 ---
 
 ## 🚀 Installation
-
-Install Comercify with your favorite package manager:
 
 ```bash
 pnpm add comercify
@@ -31,99 +30,57 @@ yarn add comercify
 
 ## ⚡ Usage
 
-Once installed, you can import functions from different modules in two ways:
-
-### Import by individual module
+### Import from the package
 
 ```typescript
-import { eurilize, slugify } from 'comercify/adrian';
+import { formatPrice, removeTax, pickBestDiscount } from 'comercify/adrian';
 
-// Use the functions in your project
-const price = eurilize(1234.56); // "1.234,56 €"
-const slug = slugify('New Product'); // "new-product"
+formatPrice(1234.5, { currency: 'USD', locale: 'en-US' }); // "$1,234.50"
+removeTax(121, 21); // { net: 100, tax: 21, gross: 121 }
+pickBestDiscount(80, [
+  { type: 'percentage', amount: 10 },
+  { type: 'fixed', amount: 15, minSubtotal: 50 },
+]); // { discount: { type: 'fixed', ... }, total: 65, savings: 15 }
 ```
 
-### Consolidated import (recommended)
+The package ships ESM and CommonJS builds with type declarations, so it works
+with `import` and `require` and with every TypeScript `moduleResolution`.
 
-Generate a consolidated file with all exports:
+### Copy the source into your project
+
+If you prefer to own and edit the code, the CLI copies a module's source files
+into your project, the way shadcn/ui copies components:
 
 ```bash
-# Generates ./src/lib/comercify.ts with all exports
-npx comercify-cli
-
-# Or specify a custom path
-npx comercify-cli --output ./src/utils.ts
+npx comercify-cli --module adrian   # copies to ./src/lib/comercify/adrian
 ```
-
-Then import from the local file:
 
 ```typescript
-import { eurilize, slugify, calculateSavings } from './lib/comercify';
-
-// All functions available from a single file
-const price = eurilize(1234.56);
-const slug = slugify('New Product');
-const savings = calculateSavings(100, 80);
+import { eurilize, slugify } from './src/lib/comercify/adrian';
 ```
+
+Run `npx comercify-cli --help` for every option, or see the
+[CLI documentation](src/cli/README.md).
 
 ---
 
-## 🛠️ CLI Tool
+## 🧰 Functions
 
-Comercify includes a command-line tool to copy user module files into your project.
+The `adrian` module has 21 functions. Every one is documented with examples in
+the [module documentation](src/adrian/README.md).
 
-### Purpose
-
-The CLI scans user folders in the `src/` directory, lets you select one interactively, and copies its `index.ts` file to a specified location.
-This is useful for duplicating module structures or creating new modules based on existing ones.
-
-### CLI Usage
-
-```bash
-# Run the interactive CLI
-pnpm run cli
-```
-
-**Interactive Process:**
-
-1. Displays available user folders with status
-2. Lets you select a folder by number
-3. Prompts for the output path (default: `./src/lib/comercify.ts`)
-4. Copies the selected folder's `index.ts` file
-
-**Example Output:**
-
-```ts
-📁 Available user folders:
-  1. adrian ✅ (has index.ts)
-  2. utils ❌ (no index.ts)
-
-🔢 Select a folder number: 1
-📝 Enter the output path (default: ./src/lib/comercify.ts):
-✅ File copied successfully!
-```
-
-### Use Cases
-
-- **Module Templates**: Copy existing modules as a starting point for new features
-- **Code Backup**: Create backups of important modules
-- **Structure Duplication**: Maintain consistent patterns across modules
-- **Rapid Prototyping**: Quickly create new modules based on tested structures
-
-### Benefits
-
-- **Interactive Selection**: User-friendly folder selection process
-- **Source Tracking**: Header comments show original source and timestamp
-- **Flexible Output**: Choose any destination path
-- **Structure Preservation**: Maintains organization and comments of the original file
-
-For more details, check the [CLI documentation](src/cli/README.md).
+| Domain    | Functions                                                                                                    |
+| --------- | ------------------------------------------------------------------------------------------------------------ |
+| Money     | `formatPrice`, `eurilize`, `parsePrice`, `roundMoney`, `addTax`, `removeTax`, `calculateSavings`             |
+| Discounts | `applyDiscount`, `isDiscountActive`, `pickBestDiscount`, `generateInviteCode`                                |
+| Cart      | `cartSubtotal`, `cartItemCount`, `updateCartItem`, `mergeCarts`, `calculateShipping`, `freeShippingProgress` |
+| Catalog   | `isValidGtin`, `generateSku`, `getStockStatus`, `slugify`                                                    |
 
 ---
 
 ## 📚 Module Documentation
 
-Here you can find specific documentation for each module/package contributed by the community:
+Documentation for each module contributed by the community:
 
 - [adrian](src/adrian/README.md)
 
@@ -136,59 +93,62 @@ If you have a utility function that could help the community, follow these steps
 
 1. **Fork the repository** and create a new branch for your feature.
 
-2. **Create a new module**: Inside `src`, create a folder with your GitHub username (e.g., `src/your-username`).
-
-3. **Add your functions** in `index.ts` and export them:
+2. **Create a new module**: inside `src`, create a folder with your GitHub
+   username (e.g. `src/your-username`). Group related functions in files by
+   domain (`money.ts`, `cart.ts`...) and re-export them from `index.ts`:
 
    ```typescript
    // src/your-username/index.ts
-   export const yourNewFunction = () => {
-     // Your logic here
-   };
+   export type * from './types';
+   export { yourNewFunction } from './your-domain';
    ```
 
-4. **Add types** for your module in `types.ts`:
+3. **Add types** for your module in `types.ts`.
 
-   ```typescript
-   export interface YourNewFunctionParams {
-     // Define your parameters here
-   }
-   ```
+4. **Add tests** next to each file (`your-domain.test.ts`) with
+   [Vitest](https://vitest.dev).
 
-5. **Add tests** for your module in `index.test.ts`:
+5. **Add documentation** in `src/your-username/README.md` and link it in the
+   **Module Documentation** section above.
 
-   ```typescript
-   import { yourNewFunction } from './index';
-   import { YourNewFunctionParams } from './types';
-   ```
-
-6. **Add documentation** for your module in `src/your-username/README.md` and link it in the **Module Documentation** section of the main README.
-
-7. **Export your module** in `package.json`:
+6. **Export your module** in `package.json`, with the same shape as `adrian`:
 
    ```json
-   "exports": {
-     "./adrian": "./dist/adrian/index.js",
-     "./your-username": "./dist/your-username/index.js"
+   "./your-username": {
+     "import": {
+       "types": "./dist/your-username/index.d.mts",
+       "default": "./dist/your-username/index.mjs"
+     },
+     "require": {
+       "types": "./dist/your-username/index.d.ts",
+       "default": "./dist/your-username/index.js"
+     }
    }
    ```
 
-8. **Build and test** your changes:
+   and add it to `typesVersions` for TypeScript's `node10` resolution.
+
+7. **Run the checks** that CI runs on every pull request:
 
    ```bash
-   pnpm build
+   pnpm lint
+   pnpm typecheck
+   pnpm format:check
    pnpm test
+   pnpm build
    ```
 
-9. **Submit a Pull Request** with your changes.
-   See our [Contribution Guide](../CONTRIBUTING.md) for details.
+8. **Submit a Pull Request** with your changes.
+   See our [Contribution Guide](.github/CONTRIBUTING.md) for details.
 
 ---
 
 ## 📝 License
 
 This project is licensed under the **MIT License**.
-See the [LICENSE](../LICENSE) file for more information.
+See the [LICENSE](LICENSE) file for more information.
+
+---
 
 <div align="center">
   <p>Made with ❤️ by Adrian "Nano" Alvarez</p>

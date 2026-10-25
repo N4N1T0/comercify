@@ -1,18 +1,42 @@
 {
   "name": "comercify",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "🛒 E-commerce utility functions by the community, for the community.",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "type": "commonjs",
   "bin": {
     "comercify-cli": "./dist/cli/index.js"
   },
   "exports": {
-    "./adrian": "./dist/adrian/index.js"
+    "./adrian": {
+      "import": {
+        "types": "./dist/adrian/index.d.mts",
+        "default": "./dist/adrian/index.mjs"
+      },
+      "require": {
+        "types": "./dist/adrian/index.d.ts",
+        "default": "./dist/adrian/index.js"
+      }
+    },
+    "./package.json": "./package.json"
   },
+  "typesVersions": {
+    "*": {
+      "adrian": [
+        "./dist/adrian/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.map",
+    "src/*/*.ts",
+    "!src/**/*.test.ts",
+    "!src/cli/**"
+  ],
+  "sideEffects": false,
   "scripts": {
-    "build": "tsup src/*/index.ts src/cli/index.ts --dts --format esm,cjs --out-dir dist",
-    "dev": "tsup src/*/index.ts src/cli/index.ts --watch",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint .",
@@ -20,8 +44,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky",
-    "cli": "tsx src/cli/index.ts",
-    "generate-exports": "tsx src/cli/index.ts"
+    "cli": "tsx src/cli/index.ts"
   },
   "lint-staged": {
     "*.ts": [
@@ -37,6 +60,17 @@
   ],
   "author": "Adrián Álvarez",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N4N1T0/comercify.git"
+  },
+  "homepage": "https://github.com/N4N1T0/comercify#readme",
+  "bugs": {
+    "url": "https://github.com/N4N1T0/comercify/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
     "@types/node": "^20.11.0",

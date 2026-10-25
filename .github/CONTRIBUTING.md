@@ -12,7 +12,7 @@ funciones utilitarias. Aquí tienes una guía paso a paso para comenzar:
 ### Paso 1: Haz un fork del repositorio
 
 Si es tu primera vez contribuyendo, necesitas
-**[hacer un fork del repositorio](https://github.com/comercify-dev/comercify/fork)**.
+**[hacer un fork del repositorio](https://github.com/N4N1T0/comercify/fork)**.
 Esto crea una copia del proyecto en tu cuenta de GitHub donde puedes trabajar.
 
 ### Paso 2: Clona tu fork
@@ -112,4 +112,4 @@ seguir nuestro [Código de Conducta](./CODE_OF_CONDUCT.md).
 ## Licencia
 
 Al contribuir, aceptas que tu código será licenciado bajo la
-[Licencia MIT](./LICENSE) que rige el proyecto.
+[Licencia MIT](../LICENSE) que rige el proyecto.
