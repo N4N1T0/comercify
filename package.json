@@ -1,7 +1,7 @@
 {
   "name": "comercify",
   "version": "2.0.0",
-  "description": "🛒 E-commerce utility functions by the community, for the community.",
+  "description": "Typed, dependency-free e-commerce utilities for TypeScript: prices, taxes, discounts, carts, shipping and catalog. Import from npm or copy the source with the CLI.",
   "type": "commonjs",
   "bin": {
     "comercify-cli": "./dist/cli/index.js"
@@ -54,9 +54,25 @@
   },
   "keywords": [
     "ecommerce",
-    "utils",
-    "open-source",
-    "typescript"
+    "e-commerce",
+    "typescript",
+    "utilities",
+    "cart",
+    "shopping-cart",
+    "discounts",
+    "coupons",
+    "pricing",
+    "currency",
+    "price-formatting",
+    "tax",
+    "vat",
+    "shipping",
+    "gtin",
+    "ean",
+    "sku",
+    "cli",
+    "dependency-free",
+    "tree-shakeable"
   ],
   "author": "Adrián Álvarez",
   "license": "MIT",
