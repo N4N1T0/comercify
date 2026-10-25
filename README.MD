@@ -1,36 +1,13 @@
 # 🛒 Comercify
 
-> **E-commerce utility functions by the community, for the community.**
-> [![npm version](https://img.shields.io/npm/v/comercify.svg)](https://www.npmjs.com/package/comercify)
-> [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-> [![CI](https://img.shields.io/github/actions/workflow/status/N4N1T0/comercify/ci.yml?label=CI)](https://github.com/N4N1T0/comercify/actions/workflows/ci.yml)
+Typed, dependency-free utility functions for e-commerce in TypeScript: prices and
+taxes, discounts, carts, shipping and catalog data. Install it from npm, or copy the
+source into your project with the CLI and own the code.
 
-## [![Contributors](https://img.shields.io/github/contributors/N4N1T0/comercify)](https://github.com/N4N1T0/comercify/graphs/contributors)
-
-## 📖 What is Comercify?
-
-**Comercify** is a community-driven **open source** project providing a **collection of utility functions for e-commerce development**: prices and taxes, discounts, carts, shipping and catalog data.
-Each contributor adds **their own module** with specific functions, which can be imported from the package or copied into your project with the CLI.
-
-The functions are typed, dependency-free and tested, and they run in the browser and on Node.js 20 or later.
-
----
-
-## 🚀 Installation
-
-```bash
-pnpm add comercify
-# or
-npm install comercify
-# or
-yarn add comercify
-```
-
----
-
-## ⚡ Usage
-
-### Import from the package
+[![npm version](https://img.shields.io/npm/v/comercify.svg)](https://www.npmjs.com/package/comercify)
+[![CI](https://img.shields.io/github/actions/workflow/status/N4N1T0/comercify/ci.yml?label=CI)](https://github.com/N4N1T0/comercify/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Contributors](https://img.shields.io/github/contributors/N4N1T0/comercify)](https://github.com/N4N1T0/comercify/graphs/contributors)
 
 ```typescript
 import { formatPrice, removeTax, pickBestDiscount } from 'comercify/adrian';
@@ -43,13 +20,51 @@ pickBestDiscount(80, [
 ]); // { discount: { type: 'fixed', ... }, total: 65, savings: 15 }
 ```
 
-The package ships ESM and CommonJS builds with type declarations, so it works
-with `import` and `require` and with every TypeScript `moduleResolution`.
+## Why Comercify
+
+Every store reimplements the same small pieces: rounding money without float noise,
+taking VAT out of a gross price, picking the best discount, telling the shopper how
+far they are from free shipping. Comercify keeps them in one place, tested.
+
+- **Typed:** written in TypeScript, with declarations for every `moduleResolution`.
+- **No dependencies:** nothing to audit beyond the package itself.
+- **Tree-shakeable:** ESM and CommonJS builds, marked side-effect free.
+- **Runs anywhere:** browsers and Node.js 20 or later.
+- **Tested:** every function has unit tests, run in CI on Node.js 20, 22 and 24.
+
+## Installation
+
+```bash
+pnpm add comercify
+# or
+npm install comercify
+# or
+yarn add comercify
+```
+
+## Usage
+
+### Import from the package
+
+Functions are grouped in modules, one per contributor, and each module is a subpath
+of the package:
+
+```typescript
+import { cartSubtotal, freeShippingProgress } from 'comercify/adrian';
+
+const items = [
+  { price: 19.99, quantity: 2 },
+  { price: 5, quantity: 1 },
+];
+
+cartSubtotal(items); // 44.98
+freeShippingProgress(cartSubtotal(items), 50); // { qualified: false, remaining: 5.02, percent: 89.96 }
+```
 
 ### Copy the source into your project
 
-If you prefer to own and edit the code, the CLI copies a module's source files
-into your project, the way shadcn/ui copies components:
+If you prefer to own and edit the code, the CLI copies a module's source files into
+your project, the way shadcn/ui copies components:
 
 ```bash
 npx comercify-cli --module adrian   # copies to ./src/lib/comercify/adrian
@@ -62,12 +77,10 @@ import { eurilize, slugify } from './src/lib/comercify/adrian';
 Run `npx comercify-cli --help` for every option, or see the
 [CLI documentation](src/cli/README.md).
 
----
+## Functions
 
-## 🧰 Functions
-
-The `adrian` module has 21 functions. Every one is documented with examples in
-the [module documentation](src/adrian/README.md).
+The `adrian` module has 21 functions. Each one is documented with examples in the
+[module documentation](src/adrian/README.md).
 
 | Domain    | Functions                                                                                                    |
 | --------- | ------------------------------------------------------------------------------------------------------------ |
@@ -76,77 +89,32 @@ the [module documentation](src/adrian/README.md).
 | Cart      | `cartSubtotal`, `cartItemCount`, `updateCartItem`, `mergeCarts`, `calculateShipping`, `freeShippingProgress` |
 | Catalog   | `isValidGtin`, `generateSku`, `getStockStatus`, `slugify`                                                    |
 
----
+## Modules
 
-## 📚 Module Documentation
+| Module                         | Author                               | Functions |
+| ------------------------------ | ------------------------------------ | --------- |
+| [adrian](src/adrian/README.md) | [@N4N1T0](https://github.com/N4N1T0) | 21        |
 
-Documentation for each module contributed by the community:
+## Contributing
 
-- [adrian](src/adrian/README.md)
+Comercify grows by modules: you add a folder under `src/` with your GitHub username,
+your functions, their types, tests and a README, and the package exports it as
+`comercify/<your-username>`.
 
----
+The [contribution guide](.github/CONTRIBUTING.md) walks through every step. Before you
+open a pull request, run the same checks as CI:
 
-## 🙌 How to Contribute
+```bash
+pnpm lint && pnpm typecheck && pnpm format:check && pnpm test && pnpm build
+```
 
-All contributions are welcome!
-If you have a utility function that could help the community, follow these steps to add it:
+## Changelog
 
-1. **Fork the repository** and create a new branch for your feature.
+See [CHANGELOG.md](CHANGELOG.md). Version 2.0.0 requires Node.js 20 or later.
 
-2. **Create a new module**: inside `src`, create a folder with your GitHub
-   username (e.g. `src/your-username`). Group related functions in files by
-   domain (`money.ts`, `cart.ts`...) and re-export them from `index.ts`:
+## License
 
-   ```typescript
-   // src/your-username/index.ts
-   export type * from './types';
-   export { yourNewFunction } from './your-domain';
-   ```
-
-3. **Add types** for your module in `types.ts`.
-
-4. **Add tests** next to each file (`your-domain.test.ts`) with
-   [Vitest](https://vitest.dev).
-
-5. **Add documentation** in `src/your-username/README.md` and link it in the
-   **Module Documentation** section above.
-
-6. **Export your module** in `package.json`, with the same shape as `adrian`:
-
-   ```json
-   "./your-username": {
-     "import": {
-       "types": "./dist/your-username/index.d.mts",
-       "default": "./dist/your-username/index.mjs"
-     },
-     "require": {
-       "types": "./dist/your-username/index.d.ts",
-       "default": "./dist/your-username/index.js"
-     }
-   }
-   ```
-
-   and add it to `typesVersions` for TypeScript's `node10` resolution.
-
-7. **Run the checks** that CI runs on every pull request:
-
-   ```bash
-   pnpm lint
-   pnpm typecheck
-   pnpm format:check
-   pnpm test
-   pnpm build
-   ```
-
-8. **Submit a Pull Request** with your changes.
-   See our [Contribution Guide](.github/CONTRIBUTING.md) for details.
-
----
-
-## 📝 License
-
-This project is licensed under the **MIT License**.
-See the [LICENSE](LICENSE) file for more information.
+[MIT](LICENSE)
 
 ---
 
