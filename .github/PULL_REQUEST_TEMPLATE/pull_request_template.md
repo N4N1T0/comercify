@@ -7,7 +7,8 @@ assignees: 'N4N1T0'
 
 ## 🚀 Thank you for your contribution
 
-We're excited to see what you've built. To help us review your contribution, please fill out the following information.
+We're excited to see what you've built. To help us review your contribution,
+please fill out the following information.
 
 ### What does this contribution do?
 

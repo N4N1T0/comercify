@@ -1,11 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import {
-  applyDiscount,
-  calculateSavings,
-  eurilize,
-  mergeCarts,
-  slugify,
-} from './index';
+import { applyDiscount, calculateSavings, eurilize, mergeCarts, slugify } from './index';
 import { CartItem, SimpleDiscount } from './types';
 
 // EURILIZE
@@ -46,9 +40,7 @@ describe('slugify', () => {
   });
 
   it('debería normalizar acentos y caracteres especiales', () => {
-    expect(slugify('Camiseta de Pádel Premium!')).toBe(
-      'camiseta-de-padel-premium'
-    );
+    expect(slugify('Camiseta de Pádel Premium!')).toBe('camiseta-de-padel-premium');
     expect(slugify('Árbol & Césped --- Verde')).toBe('arbol-cesped-verde');
   });
 
@@ -176,12 +168,8 @@ describe('mergeCarts', () => {
   });
 
   it('preserva metadatos de incoming sobre base en conflicto', () => {
-    const base: CartItem[] = [
-      { productId: 'p1', quantity: 1, variant: 'rojo', price: 10 },
-    ];
-    const incoming: CartItem[] = [
-      { productId: 'p1', quantity: 2, variant: 'azul' },
-    ];
+    const base: CartItem[] = [{ productId: 'p1', quantity: 1, variant: 'rojo', price: 10 }];
+    const incoming: CartItem[] = [{ productId: 'p1', quantity: 2, variant: 'azul' }];
     const result = mergeCarts(base, incoming);
     expect(result).toHaveLength(1);
     expect(result[0].quantity).toBe(3);

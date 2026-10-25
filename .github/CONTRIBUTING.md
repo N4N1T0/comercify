@@ -1,14 +1,19 @@
 # Cómo Contribuir a Comercify
 
-¡Gracias por querer contribuir a Comercify! Personas como tú hacen que este proyecto sea un recurso valioso para la comunidad de e-commerce. Estamos emocionados por tus aportes.
+¡Gracias por querer contribuir a Comercify! Personas como tú hacen que este
+proyecto sea un recurso valioso para la comunidad de e-commerce. Estamos
+emocionados por tus aportes.
 
 ## Pasos para añadir tu función utilitaria
 
-Hemos simplificado el proceso para que puedas añadir fácilmente tus propias funciones utilitarias. Aquí tienes una guía paso a paso para comenzar:
+Hemos simplificado el proceso para que puedas añadir fácilmente tus propias
+funciones utilitarias. Aquí tienes una guía paso a paso para comenzar:
 
 ### Paso 1: Haz un fork del repositorio
 
-Si es tu primera vez contribuyendo, necesitas **[hacer un fork del repositorio](https://github.com/comercify-dev/comercify/fork)**. Esto crea una copia del proyecto en tu cuenta de GitHub donde puedes trabajar.
+Si es tu primera vez contribuyendo, necesitas
+**[hacer un fork del repositorio](https://github.com/comercify-dev/comercify/fork)**.
+Esto crea una copia del proyecto en tu cuenta de GitHub donde puedes trabajar.
 
 ### Paso 2: Clona tu fork
 
@@ -21,7 +26,8 @@ cd comercify
 
 ### Paso 3: Crea una nueva rama
 
-Crea una rama nueva para tu contribución. Es recomendable que el nombre describa el cambio o la función que añades:
+Crea una rama nueva para tu contribución. Es recomendable que el nombre describa
+el cambio o la función que añades:
 
 ```bash
 git checkout -b feat/add-mi-nueva-funcion
@@ -29,7 +35,8 @@ git checkout -b feat/add-mi-nueva-funcion
 
 ### Paso 4: Crea tu módulo
 
-Dentro del directorio `src`, crea una carpeta con tu nombre de usuario de GitHub. Este será tu módulo personal donde añadirás tus funciones:
+Dentro del directorio `src`, crea una carpeta con tu nombre de usuario de
+GitHub. Este será tu módulo personal donde añadirás tus funciones:
 
 ```bash
 mkdir src/TU_USUARIO
@@ -55,11 +62,14 @@ export const yourNewFunction = () => {
 
 ### Paso 6: Añade la documentación de tu módulo
 
-Crea un archivo `README.md` dentro de tu módulo (`src/TU_USUARIO/README.md`) para documentar tus funciones. Luego, añade un enlace a esta documentación en la sección **Documentación de módulos** del README principal.
+Crea un archivo `README.md` dentro de tu módulo (`src/TU_USUARIO/README.md`)
+para documentar tus funciones. Luego, añade un enlace a esta documentación en la
+sección **Documentación de módulos** del README principal.
 
 ### Paso 7: Exporta tu módulo en `package.json`
 
-Abre `package.json` y añade tu módulo al campo `exports`, para que otros puedan importarlo fácilmente:
+Abre `package.json` y añade tu módulo al campo `exports`, para que otros puedan
+importarlo fácilmente:
 
 ```json
 "exports": {
@@ -79,7 +89,8 @@ pnpm test
 
 ### Paso 9: Envía un Pull Request
 
-Haz commit y push de tus cambios a tu fork, y abre un **pull request** hacia el repositorio principal:
+Haz commit y push de tus cambios a tu fork, y abre un **pull request** hacia el
+repositorio principal:
 
 ```bash
 git add .
@@ -93,10 +104,12 @@ Finalmente, abre tu PR en GitHub y lo revisaremos lo antes posible.
 
 ## Código de Conducta
 
-Para mantener una comunidad inclusiva y amable, todos los colaboradores deben seguir nuestro [Código de Conducta](./CODE_OF_CONDUCT.md).
+Para mantener una comunidad inclusiva y amable, todos los colaboradores deben
+seguir nuestro [Código de Conducta](./CODE_OF_CONDUCT.md).
 
 ---
 
 ## Licencia
 
-Al contribuir, aceptas que tu código será licenciado bajo la [Licencia MIT](./LICENSE) que rige el proyecto.
+Al contribuir, aceptas que tu código será licenciado bajo la
+[Licencia MIT](./LICENSE) que rige el proyecto.
