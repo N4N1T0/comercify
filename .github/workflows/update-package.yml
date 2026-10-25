@@ -30,8 +30,8 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Update npm
-        # trusted publishing needs npm 11.5.1 or later
-        run: npm install -g npm@^11.5.1
+        # npm stage needs npm 11.15.0 or later
+        run: npm install -g npm@^11.15.0
 
       - name: Check the tag matches package.json
         run: |
@@ -50,5 +50,7 @@ jobs:
       - name: Build package
         run: pnpm run build
 
-      - name: Publish package
-        run: npm publish --access public
+      - name: Stage package
+        # the trusted publisher may only stage: the release waits for the
+        # maintainer to approve it with 2FA (npm stage approve <id>)
+        run: npm stage publish . --access public
