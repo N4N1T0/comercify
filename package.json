@@ -1,6 +1,6 @@
 {
   "name": "comercify",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Typed, dependency-free e-commerce utilities for TypeScript: prices, taxes, discounts, carts, shipping and catalog. Import from npm or copy the source with the CLI.",
   "type": "commonjs",
   "bin": {
